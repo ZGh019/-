@@ -1,0 +1,76 @@
+/* إعدادات عامة */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #f4f4f4;
+    color: #333;
+}
+
+/* رأس الموقع */
+header {
+    background: #222;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+}
+header .logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+nav ul {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+nav ul li {
+    margin-left: 15px;
+}
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    transition: 0.3s;
+}
+nav ul li a:hover {
+    color: #00bcd4;
+}
+
+/* المقدمة */
+.intro {
+    text-align: center;
+    padding: 40px 20px;
+    background: white;
+    margin-bottom: 20px;
+}
+.intro h1 {
+    color: #222;
+}
+
+/* البطاقات */
+.cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+    padding: 20px;
+}
+.card {
+    background: white;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    transition: 0.3s;
+}
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+
+/* الفوتر */
+footer {
+    text-align: center;
+    padding: 10px;
+    background: #222;
+    color: white;
+}
