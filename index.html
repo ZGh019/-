@@ -55,11 +55,144 @@
     <aside> <!-- القائمة الجانبية --> </aside>
 
     <mani>
+        <section class="hero">
+            <video autoplay muted loop class="background-video">
+                <source src="your-vidoe.mp4" type="vidoe/mp4">
+                 متصفحك لا يدعم تشغيل الفيديو.
+            </video>
+            <div class="overlay">
+                <h1>مرحبًا بكم في موقعنا التقني</h1>
+                <p>تابع أحدث الأخبار والتقنيات الحديثة هنا</p>
+            </div>
+        </section>
+
+        <section id="featured-news">
+            <h2>featured news</h2>
+            <div class="featured-container">
+                <!-- الجافاسكربت سيضيف هنا البطاقات الخاصة بالأخبار الأكثر زيارة -->
+            </div>
+        </section>    
         
+        <section id="latest-news">
+            <h2>latest news</h2>
+            <div class="news-container">
+                <!-- هنا الجافاسكربت سيضيف المنشورات تلقائيًا -->
+            </div>
+        </section>
 
 
+        <section id="main-categories">
+            <h2>الأقسام الرئيسية</h2>
+            <div class="categories-container">
+                <a href="#" class="category-card">
+                    <img src="#" alt="أخبار التقنية">
+                    <h3>أخبار التقنية</h3>
+                </a>
+                <a href="#" class="category-card">
+                    <img src="#" alt="شروحات وأدلة">
+                    <h3>شروحات وأدلة</h3>
+                </a>
+                <a href="#" class="category-card">
+                    <img src="#" alt="الأمن السيبراني">
+                    <h3>الأمن السيبراني</h3>
+                </a>
+                <a href="#" class="category-card">
+                    <img src="#" alt="أدوات وتقنيات">
+                    <h3>أدوات وتقنيات</h3>
+                </a>
+                <a href="#" class="category-card">
+                    <img src="#" alt="التطوير والبرمجة">
+                    <h3>التطوير والبرمجة</h3>
+                </a>
+            </div>
+        </section>
 
-    </mani>        
+        <section id="media-section" aria-label="الوسائط">
+            <h2>فيدهات ووسائط</h2>
+            <div class="media-container">
+                <!-- main.js سيعرض هنا فيديوهات (من YouTube أو مصادر أخرى) -->
+                <!-- main.js سيعرض هنا فيديوهات (من YouTube أو مصادر أخرى) -->
+            </div>
+        </section>
+        
+        <section id="featured-posts" rair-label="التوصيات أو المشاركات المميزة">
+            <h2>التوصيات</h2>
+            <div class="featured-container">
+                <!-- main.js سيضيف هنا البطاقات المميزة -->
+            </div>
+        </section>
+        <section id="subscribe-contact" rair-label="اشترك أو تواصل معنا">
+            <h2>اشترك أو تواصل معنا</h2>
+            <div class="subscription-from"
+                <from id="newsletter-from">
+                    <label for="email">ادخل بريدك الإلكتروني للاشتراك</label>
+                    <inpot type="email" id="email" name="email" placeholder="exmple@email.com" required>
+                    <button type="submit">اشترك</button>
+            </div>
+            <div class="contact-info">
+                 <!-- يمكن وضع وسائل التواصل أو نموذج الاتصال -->
+            </div>
+        </section>    
+    </mani>
+
+
+    <footer>
+    <!-- أيقونات التواصل الاجتماعي -->
+        <div class="social-icons">
+            <a href="https://www.facebook.com" target="_blank" aria-label="فيسبوك" rel="noopener noreferrer">
+                <img src="icons/facebook.svg" alt="فيسبوك">
+            </a>
+            <a href="https://www.twitter.com" target="_blank" aria-label="تويتر" rel="noopener noreferrer">
+                <img src="icons/twitter.svg" alt="تويتر">
+            </a>
+            <a href="https://www.instagram.com" target="_blank" aria-label="إنستغرام" rel="noopener noreferrer">
+                <img src="icons/instagram.svg" alt="إنستغرام">
+            </a>
+        </div>    
+
+        <!-- روابط مهمة -->
+        <div class="important-links">
+            <h3>روابط مهمة</h3>
+            <ul>
+                <li><a href="#about">عن موقعنا</a></li>
+                <li><a href="#privacy-policy">سياسة الخصوصية</a></li>
+                <li><a href="#terms-of-use">شروط الاستخدام</a></li>
+            </ul>
+        </div>
+
+        <!-- نبذة عن الموقع -->
+        <section id="about">
+            <h4>عن موقعنا</h4>
+            <p>
+                نحن منصة تقنية تهدف إلى تقديم محتوى وأدوات رقمية مبتكرة تساعد المستخدمين على تطوير مهاراتهم وتحقيق أقصى استفادة من التكنولوجيا، 
+                مع الحرص على توفير تجربة آمنة واحترافية.
+            </p>
+        </section>
+
+        <!-- سياسة الخصوصية -->
+        <section id="privacy-policy">
+            <h4>سياسة الخصوصية</h4>
+            <p>
+                نلتزم بحماية بياناتك الشخصية وعدم مشاركتها مع أي طرف ثالث دون إذنك، 
+                ونستخدم المعلومات فقط لتحسين خدماتنا وتجربتك على الموقع.
+            </p>
+        </section>
+
+        <!-- شروط الاستخدام -->
+        <section id="terms-of-use">
+            <h4>شروط الاستخدام</h4>
+            <p>
+                باستخدامك لموقعنا، فإنك توافق على عدم إساءة استخدام الأدوات أو المحتوى المتاح، 
+                وتقر بأننا غير مسؤولين عن أي أضرار أو تبعات ناتجة عن سوء استخدامك للخدمات.
+            </p>
+        </section>
+        <!-- حقوق النشر -->
+        <div class="copyright">
+            <p>© 2025 موقعنا التقني - جميع الحقوق محفوظة.</p>
+        </div>
+    </footer>    
+
+    
                 
             
         
