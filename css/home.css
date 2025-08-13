@@ -59,7 +59,35 @@ body {
     75% { background-position: 50% 0%; }
     100% { background-position: 0% 50%; }
 }
-
+/* تعريف شكل الزر الأساسي*/
+button {
+    background: var(--button-bg-color); /* الخلفية من المتغيرات */
+    color: var(--button-text-color);    /* لون النص */
+    font-family: var(--popup-font-family); /* خط واضح */
+    border: none;                       /* إزالة الحدود الافتراضية */
+    padding: 10px 20px;                 /* مساحة داخلية للزر */
+    cursor: pointer;                    /* يظهر شكل اليد عند المرور */
+    transition: all 0.3s ease;          /* تأثير سلس عند hover أو active */
+    box-shadow: var(--button-shadow);   /* الظل الأساسي للزر */
+    border-radius: 8px;                 /* زوايا دائرية لطيفة */
+}
+/* السطر الثاني: تأثير hover للزر.*/
+button:hover {
+    background: var(--button-hover-bg); /* تغير خلفية الزر عند المرور */
+    box-shadow: 0 6px 12px rgba(0,0,0,0.25); /* زيادة الظل لإظهار رفع الزر */
+    transform: translateY(-2px); /* رفع خفيف للزر عند hover */
+}
+/* تأثير focus */
+button:focus {
+    outline: var(--button-focus-outline); /* يظهر حد حول الزر عند التركيز */
+    box-shadow: 0 0 8px var(--popup-glow-color); /* توهج خفيف حول الزر */
+}
+/* تأثير active عند الضغط على الزر.*/
+button:active {
+    background: var(--button-active-bg); /* تغير الخلفية عند الضغط */
+    box-shadow: var(--button-active-shadow); /* الظل عند الضغط */
+    transform: translateY(0); /* إعادة الزر لمكانه الطبيعي بعد الضغط */
+}
 
 
 
