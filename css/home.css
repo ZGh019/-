@@ -88,8 +88,47 @@ button:active {
     box-shadow: var(--button-active-shadow); /* الظل عند الضغط */
     transform: translateY(0); /* إعادة الزر لمكانه الطبيعي بعد الضغط */
 }
+/*تصميم حاوية البحث */
+.search-bar {
+    display: flex;               /* ترتيب العناصر بشكل أفقي */
+    align-items: center;         /* تمركز عمودي للنص والزر */
+    gap: 5px;                    /* مسافة صغيرة بين الإدخال والزر */
+    background: var(--card-bg-color);  /* خلفية مناسبة */
+    padding: 5px 10px;           /* مسافة داخلية للحاوية */
+    border-radius: 8px;          /* حواف ناعمة */
+    box-shadow: var(--shadow-color); /* ظل خفيف للحاوية */
+}
+/* تصميم حقل الإدخال داخل الحاوية*/
+.search-bar input[type="text"] {
+    flex: 1;                     /* يشغل كل المساحة المتاحة */
+    padding: 8px 10px;           /* مساحة داخلية للنص */
+    border: 1px solid var(--border-color); /* حدود خفيفة */
+    border-radius: 6px;          /* زوايا ناعمة */
+    outline: none;               /* إزالة الحدود الافتراضية عند التركيز */
+}
 
+/* تصميم زر البحث داخل الحاوية*/
+.search-bar button {
+    background: var(--accent-color); /* لون الزر */
+    color: #000;                      /* لون نص واضح */
+    padding: 8px 12px;                /* مساحة داخلية للزر */
+    border-radius: 6px;               /* حواف ناعمة */
+    border: none;                      /* إزالة الحدود الافتراضية */
+    cursor: pointer;                  /* مؤشر اليد عند المرور */
+    transition: all 0.3s ease;        /* تأثير سلس عند hover */
+}
+/* تأثير hover و active لزر البحث داخل حاوية البحث.*/
+.search-bar button:hover {
+    background: #00ffcc; /* لون أفتح عند المرور */
+    transform: translateY(-2px); /* رفع خفيف للزر */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2); /* ظل يظهر عند المرور */
+}
 
+.search-bar button:active {
+    background: #00e0aa; /* لون أغمق عند الضغط */
+    transform: translateY(0); /* الزر يعود لمكانه الطبيعي */
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2); /* ظل أخف عند الضغط */
+}
 
 
 
