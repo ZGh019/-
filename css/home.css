@@ -31,7 +31,8 @@ html, body {
     --link-hover-color: #6f42c1;/*لون الرابط عند التمرير بي اماوس*/
     --link-active-color: #0d6efd;/*تاثيرات الرابط عند الضغط عليه */
 /*================كل ما يخص متغيرات النافدة امنبثقة .ا ==================*/
-    --popup-bg-color: #00ff99; /* أخضر فسفوري */
+    --popup-bg-color: #00ff99; /* أخضر فسفوري لون اساسي */
+    --popup-bg-gradient: linear-gradient(135deg, #00ff99, #66ffcc);/*لون متدرج لي نوافد*/
     --popup-text-color: #ffffff; /* نص أبيض واضح */
     --popup-border-color: #ffffff; /* حواف بيضاء */
     --popup-font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;/*انواع الخط الكتابي*/
