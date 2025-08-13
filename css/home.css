@@ -97,6 +97,9 @@ button:active {
     padding: 5px 10px;           /* مسافة داخلية للحاوية */
     border-radius: 8px;          /* حواف ناعمة */
     box-shadow: var(--shadow-color); /* ظل خفيف للحاوية */
+    width: 50%;
+    max-radius: 500px;
+    margin: 20px auto;
 }
 /* تصميم حقل الإدخال داخل الحاوية*/
 .search-bar input[type="text"] {
