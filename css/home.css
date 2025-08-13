@@ -15,7 +15,30 @@ html, body {
     --secondary-color: #6f42c1; /* بنفسجي هادئ */
     --accent-color: #00e0ff; /* أزرق نيوني */
     --background-gradient: linear-gradient(135deg, #0d6efd, #6f42c1, #00e0ff);
-    --text-color: #f5f5f5;
+    --text-color: #f5f5f5; /*لون النصوص*/
+    --text-muted-color: #d1d1d1;/*لون النصوص الخافة*/
+    --border-color: #cccccc;/*لون حواف البطاقات والجداول */
+    --shadow-color: rgba(0, 0, 0, 0.15);/*لون ضلال البطاقات والجداول */
+    --card-bg-color: #ffffff;/*لون العناصر او البطاقات الداخلي */
+    --button-text-color: #ffffff;/*لون النصوص داخل الازرار*/
+    --button-bg-color: linear-gradient(135deg, #6f42c1, #b8a6ff, #00e0ff);/*لون خلفية الازرار*/
+    --button-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);/*ضلال الازرار */
+    --button-hover-bg: linear-gradient(135deg, #5a34a3, #a68cff, #00c0dd);/*تاثير الازرار لي تمرير الموس */
+    --button-focus-outline: 2px solid rgba(0, 224, 255, 0.6);/*حوتف الازرار*/
+    --button-active-bg: linear-gradient(135deg, #4a2d85, #9370ff, #00aacc);/*تاثير الضغط علي الزر*/
+    --button-active-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);/*تاثير ضلال الازرار عند الضغط*/
+    --link-color: #00e0ff;/*لون الرابط العادي*/
+    --link-hover-color: #6f42c1;/*لون الرابط عند التمرير بي اماوس*/
+    --link-active-color: #0d6efd;/*تاثيرات الرابط عند الضغط عليه */
+/*================كل ما يخص متغيرات النافدة امنبثقة .ا ==================*/
+    --popup-bg-color: #00ff99; /* أخضر فسفوري */
+    --popup-text-color: #ffffff; /* نص أبيض واضح */
+    --popup-border-color: #ffffff; /* حواف بيضاء */
+    --popup-font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;/*انواع الخط الكتابي*/
+    --popup-animation-duration: 0.5s; /* مدة ظهور النافذة */
+    --popup-glow-color: rgba(0, 255, 153, 0.7); /* ضوء ساطع حول النافذة */
+    --popup-shadow: 0 8px 16px rgba(0,0,0,0.3);/*ظل داخلي (Inset Shadow) → يجعل النافذة تبدو بارزة قليلاً*/
+    --popup-backdrop-blur: blur(8px);/*  --popup-backdrop-blur: blur(8px);*/
 }    
 
 body {
