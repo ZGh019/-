@@ -98,7 +98,7 @@ button:active {
     border-radius: 8px;          /* حواف ناعمة */
     box-shadow: var(--shadow-color); /* ظل خفيف للحاوية */
     width: 50%;
-    max-radius: 500px;
+    max-width: 500px;
     margin: 20px auto;
 }
 /* تصميم حقل الإدخال داخل الحاوية*/
