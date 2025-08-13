@@ -23,7 +23,7 @@ body {
     padding: 0;
     background: var(--background-gradient);
     background-size: 300% 300%;
-    animation: gradientAnimation 12s ease-in-out infinite;
+    animation: gradientAnimation 20s ease-in-out infinite;
     color: var(--text-color);
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
