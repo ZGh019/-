@@ -1,72 +1,84 @@
-// اختيار الحاوية التي سيظهر فيها المشهد
+import * as THREE from 'https://cdn.jsdelivr.net/npm/three@0.158.0/build/three.module.js';
+import { FontLoader } from 'https://cdn.jsdelivr.net/npm/three@0.158.0/examples/jsm/loaders/FontLoader.js';
+import { TextGeometry } from 'https://cdn.jsdelivr.net/npm/three@0.158.0/examples/jsm/geometries/TextGeometry.js';
+
+// الحاوية
 const container = document.getElementById('welcome3d');
-if (!container) {
-  throw new Error("العنصر #welcome3d غير موجود في الصفحة!");
-}
-// إنشاء المشهد (Scene) وهو المساحة التي سنضع فيها الأجسام
+if (!container) throw new Error("العنصر #welcome3d غير موجود!");
+
+// المشهد
 const scene = new THREE.Scene();
 
-// إنشاء الكاميرا من نوع Perspective (مثل عين الإنسان)
+// الكاميرا
 const camera = new THREE.PerspectiveCamera(
-  75, // زاوية الرؤية
-  window.innerWidth / window.innerHeight, // نسبة العرض للارتفاع
-  0.1, // أقرب مسافة يمكن رؤيتها
-  1000 // أبعد مسافة يمكن رؤيتها
+  75,
+  window.innerWidth / window.innerHeight,
+  0.1,
+  1000
 );
+camera.position.z = 10;
 
-// إبعاد الكاميرا للخلف حتى نرى الأشكال
-camera.position.z = 5;
-// إنشاء Renderer مع تفعيل الشفافية alpha
+// Renderer
 const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
-//ضبط دقة العرض حتى تكون أوضح على الشاشات العالية الكثافة
 renderer.setPixelRatio(window.devicePixelRatio);
-// ضبط حجم العرض ليملأ الشاشة
 renderer.setSize(window.innerWidth, window.innerHeight);
-// التأكد أن الخلفية شفافة
-renderer.setClearColor(0x000000, 0); // 0 هنا يعني شفافية كاملة
-// إضافة الـ Renderer إلى الحاوية
 container.appendChild(renderer.domElement);
 
-// إضاءة نقطية بيضاء
-const light = new THREE.AmbientLight(0xffffff, 1); // ضوء أبيض ساطع
-scene.add(light);
+// إضاءة
+const ambientLight = new THREE.AmbientLight(0xffffff, 0.4);
+scene.add(ambientLight);
 
-//========= إنشاء النصوص الثلاثية الأبعاد =========
-const loader = new THREE.FontLoader(); // تعريف loader هنا
-// تحميل الخط قبل إنشاء النصوص
-loader.load('helvetiker_regular.typeface.json', function (font) {
-    
-    const textGeometry = new THREE.TextGeometry('زاكي الهكر الأخلاقي', {
-        font: font,
-        size: 2,
-        height: 0.3,
-    });
-    textGeometry.center();
+const dirLight = new THREE.DirectionalLight(0xffffff, 1);
+dirLight.position.set(5, 10, 7);
+scene.add(dirLight);
 
-    const textMaterial = new THREE.MeshStandardMaterial({ color: 0xff0000 });
-    const textMesh = new THREE.Mesh(textGeometry, textMaterial);
+// تحميل الخط
+const loader = new FontLoader();
+loader.load('fonts/helvetiker_regular.typeface.json', function(font) {
 
-    textMesh.position.set(0, 0, -2); // أمام الكاميرا
-    scene.add(textMesh);
+    // دالة إنشاء نص
+    function createTextMesh(text, size, color) {
+        const geometry = new TextGeometry(text, { font: font, size: size, height: 0.3 });
+        geometry.center();
+        const material = new THREE.MeshStandardMaterial({ color: color });
+        return new THREE.Mesh(geometry, material);
+    }
 
-    // إضاءة
-    const ambientLight = new THREE.AmbientLight(0xffffff, 0.3);
-    scene.add(ambientLight);
+    // النصوص
+    const mainName = createTextMesh('Stream & News', 1, 0xff0000);
+    mainName.position.y = 2;
+    scene.add(mainName);
 
-    const dirLight = new THREE.DirectionalLight(0xffffff, 1);
-    dirLight.position.set(5, 5, 5);
-    scene.add(dirLight);
+    const arabicDesc = createTextMesh('منصة المعرفة التقنية والأمن السيبراني والتطوير', 0.4, 0x00ff00);
+    arabicDesc.position.y = 0.5;
+    scene.add(arabicDesc);
 
-    // حلقة الرسم
+    const englishDesc = createTextMesh('Platform of Tech Knowledge, Cybersecurity and Development', 0.4, 0x00ffff);
+    englishDesc.position.y = -0.5;
+    scene.add(englishDesc);
+
+    const abbreviation = createTextMesh('PTKCD', 0.6, 0xffff00);
+    abbreviation.position.y = -2;
+    scene.add(abbreviation);
+
+    // حلقة الرسوم
     function animate() {
         requestAnimationFrame(animate);
-        textMesh.rotation.y += 0.01;
+        mainName.rotation.y += 0.01;
+        arabicDesc.rotation.y += 0.005;
+        englishDesc.rotation.y -= 0.005;
+        abbreviation.rotation.y += 0.01;
         renderer.render(scene, camera);
     }
     animate();
 });
 
-
+// التعامل مع تغيير حجم النافذة
+window.addEventListener('resize', () => {
+    camera.aspect = window.innerWidth / window.innerHeight;
+    camera.updateProjectionMatrix();
+    renderer.setSize(window.innerWidth, window.innerHeight);
+});
 
 //const loader = new THREE.FontLoader();
 //loader.load('fonts/helvetiker_regular.typeface.json', function (font) {
