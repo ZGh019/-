@@ -162,14 +162,18 @@ button:active {
     padding: 5px 10px;      /* تقلص الحشوة */
     box-shadow: 0 2px 8px rgba(0,0,0,0.4);
 }
-
-/* الشعار */
-.top-bar img {
-    height: 10px;
-    width: auto;
-    cursor: pointer;
-    transition: height 0.3s ease; /* لتأثير سلس عند تغيير الحجم */
+/*الاسم الرئسي لي المنصة*/
+.site-title {
+    font-size: 28px;
+    color: white;
+    margin: 0;
+    font-weight: bold;
 }
+
+.top-bar.shrink .site-title {
+    font-size: 20px; /* يصغر مع تقلص الشريط */
+}
+
 
 /* قائمة الروابط */
 .top-bar nav ul {
@@ -206,3 +210,25 @@ button:active {
         margin-top: 10px;
     }
 }
+/*============== انميشا الشريط العلوي ===========*/
+.top-bar {
+    background: linear-gradient(270deg, #FFD700, #FFA500, #FFD700);
+    background-size: 400% 400%;
+    animation: goldShine 4s ease infinite;
+    transition: height 0.3s ease, padding 0.3s ease;
+}
+
+@keyframes goldShine {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+.top-bar.shrink {
+    height: 50px;
+    padding: 5px 0;
+}
+.animate-gold {
+    animation: goldShine 4s ease infinite;
+}
+
