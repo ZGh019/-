@@ -38,14 +38,20 @@ loader.load('https://threejs.org/examples/fonts/helvetiker_regular.typeface.json
     
     const textGeometry = new THREE.TextGeometry('زاكي الهكر الأخلاقي', {
         font: font,
-        size: 1,
-        height: 0.1,
+        size: 2,
+        height: 0.3,
     });
     textGeometry.center();
 
     const textMaterial = new THREE.MeshStandardMaterial({ color: 0xff0000 });
     const textMesh = new THREE.Mesh(textGeometry, textMaterial);
+
+    textMesh.position.set(0, 0, 0); // أمام الكاميرا
     scene.add(textMesh);
+
+    // إضاءة
+    const ambientLight = new THREE.AmbientLight(0xffffff, 0.3);
+    scene.add(ambientLight);
 
     const dirLight = new THREE.DirectionalLight(0xffffff, 1);
     dirLight.position.set(5, 5, 5);
@@ -54,7 +60,7 @@ loader.load('https://threejs.org/examples/fonts/helvetiker_regular.typeface.json
     // حلقة الرسم
     function animate() {
         requestAnimationFrame(animate);
-        textMesh.rotation.y += 0.01; // دوران النص لتجربة
+        textMesh.rotation.y += 0.01;
         renderer.render(scene, camera);
     }
     animate();
