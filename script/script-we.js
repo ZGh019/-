@@ -46,7 +46,7 @@ loader.load('https://threejs.org/examples/fonts/helvetiker_regular.typeface.json
     const textMaterial = new THREE.MeshStandardMaterial({ color: 0xff0000 });
     const textMesh = new THREE.Mesh(textGeometry, textMaterial);
 
-    textMesh.position.set(0, 0, 0); // أمام الكاميرا
+    textMesh.position.set(0, 0, -2); // أمام الكاميرا
     scene.add(textMesh);
 
     // إضاءة
