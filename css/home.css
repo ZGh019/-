@@ -210,20 +210,6 @@ button:active {
         margin-top: 10px;
     }
 }
-/*============== انميشا الشريط العلوي ===========*/
-/* تأثير الانتقال بين الأسود الشفاف والبنفسجي */
-@keyframes fadeToPurple {
-    0% {
-        background-color: rgba(0, 0, 0, 0.6); /* أسود شفاف */
-    }
-    100% {
-        background-color: #8e44ad; /* البنفسجي الخاص بك */
-    }
-}
-
-.animate-purple {
-    animation: fadeToPurple 2s ease-in-out forwards;
-}
 
 /*=========== الشعار و الوصف ===============*/
 .img-text {
