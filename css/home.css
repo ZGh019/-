@@ -140,5 +140,61 @@ button:active {
     box-shadow: 0 2px 4px rgba(0,0,0,0.2); /* ظل أخف عند الضغط */
 }
 
+/* ==================== الهيدر العلوي ==================== */
+.top-bar {
+    display: flex;                  /* ترتيب الشعار والقائمة بجانب بعض */
+    align-items: center;            /* تمركز عمودي */
+    justify-content: space-between; /* الشعار على اليسار والقائمة على اليمين */
+    padding: 10px 20px;             /* مسافة داخلية للهيدر */
+    background: rgba(0,0,0,0.6);    /* خلفية شفافة سوداء */
+    backdrop-filter: blur(10px);    /* تأثير ضبابي للخلفية */
+    position: fixed;                /* يبقى ثابت عند التمرير */
+    width: 100%;
+    z-index: 1000;                  /* فوق كل عناصر الصفحة */
+    box-shadow: 0 2px 8px rgba(0,0,0,0.2); /* ظل خفيف */
+}
+
+/* الشعار */
+.top-bar img {
+    height: 60px;    /* ضبط ارتفاع الشعار */
+    width: auto;     /* الحفاظ على نسبة الأبعاد */
+    cursor: pointer; /* مؤشر عند المرور */
+}
+
+/* قائمة الروابط */
+.top-bar nav ul {
+    list-style: none;          /* إزالة النقط */
+    display: flex;             /* ترتيب أفقي */
+    gap: 20px;                 /* مسافة بين الروابط */
+    margin: 0;
+    padding: 0;
+}
+
+.top-bar nav ul li a {
+    text-decoration: none;     /* إزالة الخط تحت النص */
+    color: var(--text-color);  /* لون نص الهيدر */
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.top-bar nav ul li a:hover {
+    color: var(--accent-color); /* تغيير اللون عند المرور */
+}
+
+/* ==================== استجابة الهواتف ==================== */
+@media screen and (max-width: 768px) {
+    .top-bar {
+        flex-direction: column;  /* ترتيب عمودي */
+        align-items: flex-start;
+        padding: 10px;
+    }
+
+    .top-bar nav ul {
+        flex-direction: column; /* الروابط تحت بعض */
+        width: 100%;
+        gap: 10px;
+        margin-top: 10px;
+    }
+}
 
 
