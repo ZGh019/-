@@ -31,7 +31,8 @@ container.appendChild(renderer.domElement);
 const light = new THREE.AmbientLight(0xffffff, 1); // ضوء أبيض ساطع
 scene.add(light);
 
-//============انشاء النصوص ثلاثية الابعاد========================
+//========= إنشاء النصوص الثلاثية الأبعاد =========
+const loader = new THREE.FontLoader(); // تعريف loader هنا
 // تحميل الخط قبل إنشاء النصوص
 loader.load('https://threejs.org/examples/fonts/helvetiker_regular.typeface.json', function (font) {
     
