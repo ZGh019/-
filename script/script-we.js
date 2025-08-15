@@ -34,7 +34,7 @@ scene.add(light);
 //========= إنشاء النصوص الثلاثية الأبعاد =========
 const loader = new THREE.FontLoader(); // تعريف loader هنا
 // تحميل الخط قبل إنشاء النصوص
-loader.load('https://threejs.org/examples/fonts/helvetiker_regular.typeface.json', function (font) {
+loader.load('helvetiker_regular.typeface.json', function (font) {
     
     const textGeometry = new THREE.TextGeometry('زاكي الهكر الأخلاقي', {
         font: font,
