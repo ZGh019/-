@@ -145,7 +145,7 @@ button:active {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 10px 20px;       /* الحجم الابتدائي */
+    padding: 5px 10px;       /* الحجم الابتدائي */
     background: rgba(0,0,0,0.6);
     backdrop-filter: blur(10px);
     position: fixed;
@@ -159,13 +159,13 @@ button:active {
 
 /* حالة الشريط المصغّر عند التمرير */
 .top-bar.shrink {
-    padding: 10px 20px;      /* تقلص الحشوة */
+    padding: 5px 10px;      /* تقلص الحشوة */
     box-shadow: 0 2px 8px rgba(0,0,0,0.4);
 }
 
 /* الشعار */
 .top-bar img {
-    height: 40px;
+    height: 10px;
     width: auto;
     cursor: pointer;
     transition: height 0.3s ease; /* لتأثير سلس عند تغيير الحجم */
