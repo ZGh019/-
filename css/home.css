@@ -145,7 +145,7 @@ button:active {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 20px 40px;       /* الحجم الابتدائي */
+    padding: 10px 20px;       /* الحجم الابتدائي */
     background: rgba(0,0,0,0.6);
     backdrop-filter: blur(10px);
     position: fixed;
@@ -165,7 +165,7 @@ button:active {
 
 /* الشعار */
 .top-bar img {
-    height: 60px;
+    height: 40px;
     width: auto;
     cursor: pointer;
     transition: height 0.3s ease; /* لتأثير سلس عند تغيير الحجم */
