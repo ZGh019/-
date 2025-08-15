@@ -1,110 +1,64 @@
-import * as THREE from 'https://cdn.jsdelivr.net/npm/three@0.158.0/build/three.module.js';
-import { FontLoader } from 'https://cdn.jsdelivr.net/npm/three@0.158.0/examples/jsm/loaders/FontLoader.js';
-import { TextGeometry } from 'https://cdn.jsdelivr.net/npm/three@0.158.0/examples/jsm/geometries/TextGeometry.js';
-
-// الحاوية
+// اختيار الحاوية التي سيظهر فيها المشهد
 const container = document.getElementById('welcome3d');
-if (!container) throw new Error("العنصر #welcome3d غير موجود!");
-
-// المشهد
+// إنشاء المشهد (Scene) وهو المساحة التي سنضع فيها الأجسام
 const scene = new THREE.Scene();
-
-// الكاميرا
+// إنشاء الكاميرا من نوع Perspective (مثل عين الإنسان)
 const camera = new THREE.PerspectiveCamera(
-  75,
-  window.innerWidth / window.innerHeight,
-  0.1,
-  1000
+  75, // زاوية الرؤية
+  window.innerWidth / window.innerHeight, // نسبة العرض للارتفاع
+  0.1, // أقرب مسافة يمكن رؤيتها
+  1000 // أبعد مسافة يمكن رؤيتها
 );
-camera.position.z = 10;
 
-// Renderer
+// إبعاد الكاميرا للخلف حتى نرى الأشكال
+camera.position.z = 5;
+// إنشاء Renderer مع تفعيل الشفافية alpha
 const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
-renderer.setPixelRatio(window.devicePixelRatio);
+
+// ضبط حجم العرض ليملأ الشاشة
 renderer.setSize(window.innerWidth, window.innerHeight);
+
+// التأكد أن الخلفية شفافة
+renderer.setClearColor(0x000000, 0); // 0 هنا يعني شفافية كاملة
+
+// إضافة الـ Renderer إلى الحاوية
 container.appendChild(renderer.domElement);
+// إضاءة نقطية بيضاء
+const light = new THREE.PointLight(0xffffff, 1);
+light.position.set(10, 10, 10);
+scene.add(light);
 
-// إضاءة
-const ambientLight = new THREE.AmbientLight(0xffffff, 0.4);
-scene.add(ambientLight);
+// إضاءة محيطة لزيادة وضوح الأشكال
+const ambient = new THREE.AmbientLight(0xffffff, 0.5);
+scene.add(ambient);
+// هندسة المكعب
+const geometry = new THREE.BoxGeometry(1, 1, 1);
 
-const dirLight = new THREE.DirectionalLight(0xffffff, 1);
-dirLight.position.set(5, 10, 7);
-scene.add(dirLight);
+// مادة المكعب (تتأثر بالإضاءة)
+const material = new THREE.MeshStandardMaterial({ color: 0x00ff00 });
 
-// تحميل الخط
-const loader = new FontLoader();
-loader.load('fonts/helvetiker_regular.typeface.json', function(font) {
+// دمج الشكل والمادة
+const cube = new THREE.Mesh(geometry, material);
 
-    // دالة إنشاء نص
-    function createTextMesh(text, size, color) {
-        const geometry = new TextGeometry(text, { font: font, size: size, height: 0.3 });
-        geometry.center();
-        const material = new THREE.MeshStandardMaterial({ color: color });
-        return new THREE.Mesh(geometry, material);
-    }
-
-    // النصوص
-    const mainName = createTextMesh('Stream & News', 1, 0xff0000);
-    mainName.position.y = 2;
-    scene.add(mainName);
-
-    const arabicDesc = createTextMesh('منصة المعرفة التقنية والأمن السيبراني والتطوير', 0.4, 0x00ff00);
-    arabicDesc.position.y = 0.5;
-    scene.add(arabicDesc);
-
-    const englishDesc = createTextMesh('Platform of Tech Knowledge, Cybersecurity and Development', 0.4, 0x00ffff);
-    englishDesc.position.y = -0.5;
-    scene.add(englishDesc);
-
-    const abbreviation = createTextMesh('PTKCD', 0.6, 0xffff00);
-    abbreviation.position.y = -2;
-    scene.add(abbreviation);
-
-    // حلقة الرسوم
-    function animate() {
-        requestAnimationFrame(animate);
-        mainName.rotation.y += 0.01;
-        arabicDesc.rotation.y += 0.005;
-        englishDesc.rotation.y -= 0.005;
-        abbreviation.rotation.y += 0.01;
-        renderer.render(scene, camera);
-    }
-    animate();
-});
-
-// التعامل مع تغيير حجم النافذة
+// إضافة المكعب إلى المشهد
+scene.add(cube);
 window.addEventListener('resize', () => {
-    camera.aspect = window.innerWidth / window.innerHeight;
-    camera.updateProjectionMatrix();
-    renderer.setSize(window.innerWidth, window.innerHeight);
+  // تحديث الكاميرا
+  camera.aspect = window.innerWidth / window.innerHeight;
+  camera.updateProjectionMatrix();
+
+  // تحديث حجم الـ Renderer
+  renderer.setSize(window.innerWidth, window.innerHeight);
 });
+function animate() {
+  requestAnimationFrame(animate); // استدعاء نفسه باستمرار
 
-//const loader = new THREE.FontLoader();
-//loader.load('fonts/helvetiker_regular.typeface.json', function (font) {
+  // حركة المكعب
+  cube.rotation.x += 0.01;
+  cube.rotation.y += 0.01;
 
-   // إنشاء نص ثلاثي الأبعاد
-  //  const textGeometry = new THREE.TextGeometry('زاكي الهكر الأخلاقي', {
-     //   font: font,
-    //    size: 0.5,
-    //    height: 0.1, 
-//});
+  // عرض المشهد
+  renderer.render(scene, camera);
+}
 
-//إعداد خامة (Material) لهذا النص ثلاثي الأبعاد حتى يظهر بلون أو تأثير معين.
-//const textMaterial = new THREE.MeshStandardMaterial({ color: 0xffd700 });
-//نربطهم مع بعض لإنشاء المجسم ثلاثي الأبعاد للنص
-//const textMesh = new THREE.Mesh(textGeometry, textMaterial);
-//بعدها نضيف النص للمشهد (scene) حتى يظهر:
-//scene.add(textMesh);
-
-
-
-
-
-
-
-
-
-
-
-
+animate(); // تشغيل الحلقة
