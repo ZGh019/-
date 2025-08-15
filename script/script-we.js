@@ -33,22 +33,41 @@ scene.add(light);
 
 //============انشاء النصوص ثلاثية الابعاد========================
 // تحميل الخط قبل إنشاء النصوص
+// تحميل الخط
 const loader = new THREE.FontLoader();
-loader.load('fonts/helvetiker_regular.typeface.json', function (font) {
-
-   // إنشاء نص ثلاثي الأبعاد
+loader.load('https://threejs.org/examples/fonts/helvetiker_regular.typeface.json', function (font) {
+    
+    // إنشاء نص ثلاثي الأبعاد
     const textGeometry = new THREE.TextGeometry('زاكي الهكر الأخلاقي', {
         font: font,
         size: 0.5,
-        height: 0.1, 
+        height: 0.1,
+    });
+    //إعداد خامة (Material) لهذا النص ثلاثي الأبعاد حتى يظهر بلون أو تأثير معين.
+    const textMaterial = new THREE.MeshStandardMaterial({ color: 0xff0000 });
+    //نربطهم مع بعض لإنشاء المجسم ثلاثي الأبعاد للنص
+    const textMesh = new THREE.Mesh(textGeometry, textMaterial);
+    //بعدها نضيف النص للمشهد (scene) حتى يظهر:
+    scene.add(textMesh);
 });
 
+
+//const loader = new THREE.FontLoader();
+//loader.load('fonts/helvetiker_regular.typeface.json', function (font) {
+
+   // إنشاء نص ثلاثي الأبعاد
+  //  const textGeometry = new THREE.TextGeometry('زاكي الهكر الأخلاقي', {
+     //   font: font,
+    //    size: 0.5,
+    //    height: 0.1, 
+//});
+
 //إعداد خامة (Material) لهذا النص ثلاثي الأبعاد حتى يظهر بلون أو تأثير معين.
-const textMaterial = new THREE.MeshStandardMaterial({ color: 0xffd700 });
+//const textMaterial = new THREE.MeshStandardMaterial({ color: 0xffd700 });
 //نربطهم مع بعض لإنشاء المجسم ثلاثي الأبعاد للنص
-const textMesh = new THREE.Mesh(textGeometry, textMaterial);
+//const textMesh = new THREE.Mesh(textGeometry, textMaterial);
 //بعدها نضيف النص للمشهد (scene) حتى يظهر:
-scene.add(textMesh);
+//scene.add(textMesh);
 
 
 
