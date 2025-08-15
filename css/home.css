@@ -224,3 +224,26 @@ button:active {
 .animate-purple {
     animation: fadeToPurple 2s ease-in-out forwards;
 }
+
+/*=========== الشعار و الوصف ===============*/
+.img-text {
+    position: absolute;
+    top: 70px; /* المسافة أسفل الشريط العلوي */
+    right: 20px; /* الزاوية اليمنى */
+    display: flex;
+    flex-direction: column; /* ترتيب عمودي */
+    align-items: center; /* النص في المنتصف تحت الصورة */
+    text-align: center;
+}
+
+.img-text img {
+    display: block;
+    margin-bottom: 10px;
+}
+
+.img-text h3 {
+    font-size: 14px;
+    color: #fff; /* لون النص */
+    max-width: 180px; /* عرض أقصى للنص */
+    line-height: 1.4;
+}
