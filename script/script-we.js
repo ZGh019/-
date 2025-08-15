@@ -33,27 +33,30 @@ scene.add(light);
 
 //============انشاء النصوص ثلاثية الابعاد========================
 // تحميل الخط قبل إنشاء النصوص
-const loader = new THREE.FontLoader();
 loader.load('https://threejs.org/examples/fonts/helvetiker_regular.typeface.json', function (font) {
     
     const textGeometry = new THREE.TextGeometry('زاكي الهكر الأخلاقي', {
         font: font,
-        size: 0.5,
+        size: 1,
         height: 0.1,
     });
-
-    textGeometry.center(); // تمركز النص في منتصف المشهد
+    textGeometry.center();
 
     const textMaterial = new THREE.MeshStandardMaterial({ color: 0xff0000 });
     const textMesh = new THREE.Mesh(textGeometry, textMaterial);
-
-    textMesh.position.set(0, 0, 0); // وضعه أمام الكاميرا
     scene.add(textMesh);
 
-    // إضاءة اتجاهية
     const dirLight = new THREE.DirectionalLight(0xffffff, 1);
     dirLight.position.set(5, 5, 5);
     scene.add(dirLight);
+
+    // حلقة الرسم
+    function animate() {
+        requestAnimationFrame(animate);
+        textMesh.rotation.y += 0.01; // دوران النص لتجربة
+        renderer.render(scene, camera);
+    }
+    animate();
 });
 
 
