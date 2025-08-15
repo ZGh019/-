@@ -140,6 +140,27 @@ button:active {
     box-shadow: 0 2px 4px rgba(0,0,0,0.2); /* ظل أخف عند الضغط */
 }
 
+/*00000000000000000000000000000000000000000000000000000000000000000000*/
+.top-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 40px;       /* الحجم الابتدائي */
+    background: rgba(0,0,0,0.6);
+    backdrop-filter: blur(10px);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    transition: all 0.3s ease; /* الانتقال السلس عند التغيير */
+}
+
+.top-bar.shrink {
+    padding: 10px 20px;      /* تقلص الحشوة */
+    box-shadow: 0 2px 8px rgba(0,0,0,0.4);
+}
+
 /* ==================== الهيدر العلوي ==================== */
 .top-bar {
     display: flex;                  /* ترتيب الشعار والقائمة بجانب بعض */
