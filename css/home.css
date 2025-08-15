@@ -211,24 +211,16 @@ button:active {
     }
 }
 /*============== انميشا الشريط العلوي ===========*/
-.top-bar {
-    background: linear-gradient(270deg, #FFD700, #FFA500, #FFD700);
-    background-size: 400% 400%;
-    animation: goldShine 4s ease infinite;
-    transition: height 0.3s ease, padding 0.3s ease;
+/* تأثير الانتقال بين الأسود الشفاف والبنفسجي */
+@keyframes fadeToPurple {
+    0% {
+        background-color: rgba(0, 0, 0, 0.6); /* أسود شفاف */
+    }
+    100% {
+        background-color: #8e44ad; /* البنفسجي الخاص بك */
+    }
 }
 
-@keyframes goldShine {
-    0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
+.animate-purple {
+    animation: fadeToPurple 2s ease-in-out forwards;
 }
-
-.top-bar.shrink {
-    height: 50px;
-    padding: 5px 0;
-}
-.animate-gold {
-    animation: goldShine 4s ease infinite;
-}
-
