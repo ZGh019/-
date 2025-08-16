@@ -3,16 +3,10 @@
 <html lang="ar" dir="rtl">
 
 <head>
-    <!-- كل مايخص القسم الرابع من الجزء الثاني  -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>الأقسام الرئيسية - الخريطة</title>
-    <link rel="stylesheet" href="style.css">
-<!-- 00000000000000000000000000000000000000000000000000000000000000000000000000 -->
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="أخبار التقنية شروحات وأدلة الأمن السيبراني أدوات وتقنيات التطوير والبرمجة.technology news,tutorials and guides,cybersecurity,tools and techniques,development and programming.">
-    <script src="https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.min.js"></script> <!--رابط جلب مكتبة صنع الفيديو-->
     <link rel="stylesheet" href="css/home.css">
     <title>PTKCD</title>
     <style>
@@ -192,23 +186,28 @@
         </section>
 
 <!--------------------------------------------القسم الرابع من الجزء الثاني ------------------------------------------------>
-       <!-- القسم الرابع -->
+        <!-- القسم الرابع -->
         <section id="main-categories">
             <h2>الأقسام الرئيسية</h2>
-            <div id="globe-container"></div>
-            <div id="info-bar" class="hidden">
-              <h3 id="info-title"></h3>
-              <p id="info-desc"></p>
-              <a id="info-link" href="#" target="_blank">انتقل إلى القسم</a>
+            <div class="categories-container">
+            
+                <!-- الكرة الأرضية -->
+                <div class="globe">
+                    <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="50" cy="50" r="48" class="globe-outline"/>
+                        <path d="M 50 2 A 48 48 0 0 1 50 98 A 48 48 0 0 1 50 2 Z" class="globe-line"/>
+                        <path d="M 2 50 A 48 48 0 0 1 98 50 A 48 48 0 0 1 2 50 Z" class="globe-line"/>
+                    </svg>
+                </div>
+
+                <!-- روابط الأقسام -->
+                    <a href="#" class="category-card">أخبار التقنية</a>
+                <a href="#" class="category-card">شروحات وأدلة</a>
+                <a href="#" class="category-card">الأمن السيبراني</a>
+                <a href="#" class="category-card">أدوات وتقنيات</a>
+                <a href="#" class="category-card">التطوير والبرمجة</a>
             </div>
         </section>
-
-         <!-- مكتبة three.js -->
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r152/three.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/three@0.152.2/examples/js/controls/OrbitControls.js"></script>
-
-        <!-- ملفنا -->
-        <script src="script.js"></script>
 
 
         
