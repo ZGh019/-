@@ -378,4 +378,72 @@ button:active {
     opacity: 0;
 }
 
+/*=================القسم رقم 3 الخاص بي بطاقات الخاصة بي الاشياء الاكثر زيارة=====================*/
+
+#latest-news {
+    padding: 60px 20px;
+    background-color: transparent;
+    text-align: center;
+}
+
+#latest-news h2 {
+    font-size: 28px;
+    margin-bottom: 30px;
+    font-weight: bold;
+    color: var(--text-color);
+}
+
+.news-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 4 بطاقات في الصف */
+    gap: 15px;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.news-card {
+    background-color: transparent;
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    box-shadow: 0 5px 15px var(--shadow-color);
+    overflow: hidden;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s, box-shadow 0.3s, opacity 0.3s;
+}
+
+.news-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px var(--shadow-color);
+}
+
+.news-card img {
+    width: 100%;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 10px;
+}
+
+.news-card .card-content h3 {
+    font-size: 18px;
+    margin-bottom: 8px;
+    color: #333;
+}
+
+.news-card .card-content p {
+    font-size: 14px;
+    color: var(--text-muted-color);
+    margin-bottom: 8px;
+}
+
+.news-card .views {
+    font-size: 12px;
+    color: var(--text-muted-color);
+    display: block;
+}
+.hidden {
+    display: none;
+}
 
