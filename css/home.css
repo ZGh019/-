@@ -258,3 +258,40 @@ button:active {
   width: 24px;
   height: 24px;
 }
+
+/*<!--===================== الجزء رقم 2 اي جزء الوسط لي انشاء الصفحة ===================== -->*/
+.hero {
+    position: relative;  /* مهم لجعل الـ overlay يتحرك فوق الفيديو */
+    width: 100%;
+    height: 300px; /* ارتفاع افتراضي، يمكن تغييره لاحقًا */
+    background-color: #111; /* لون خلفية مؤقت إذا لم يكن هناك فيديو */
+    overflow: hidden;
+}
+
+.background-video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* لتغطية الحاوية بالكامل */
+    display: block;
+}
+
+.overlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: white; /* لون النص */
+    padding: 20px;
+}
+
+.overlay h1 {
+    font-size: 36px;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+.overlay p {
+    font-size: 20px;
+}
+
