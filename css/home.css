@@ -279,7 +279,7 @@ button:active {
     position: absolute;
     top: 50%;
     left: 5%;
-    transform: translate(-50%, -50%);
+    transform: translate(-2.5%, -50%);
     text-align: center;
     color: white; /* لون النص */
     padding: 20px;
@@ -377,3 +377,5 @@ button:active {
     display: none;
     opacity: 0;
 }
+
+
