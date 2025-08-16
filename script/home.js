@@ -62,3 +62,29 @@ hiddenCards.forEach((card, index) => {
     `;
     card.classList.remove('hidden'); // إظهار البطاقة
 });
+
+
+//كود المعاينة لي بطاقات عرض الاشياء الاكثر زيارة =================================================================
+
+const hiddenNewsCards = document.querySelectorAll('.news-card.hidden');
+
+const dummyNews = Array.from({ length: 16 }, (_, i) => ({
+    title: `مقال تجريبي ${i + 5}`,
+    desc: "هذا نص تجريبي لمعرفة شكل البطاقة.",
+    img: "placeholder.jpg",
+    views: Math.floor(Math.random() * 5000) + 500 // عدد زيارات عشوائي
+}));
+
+hiddenNewsCards.forEach((card, index) => {
+    const news = dummyNews[index];
+    card.innerHTML = `
+        <img src="${news.img}" alt="${news.title}">
+        <div class="card-content">
+            <h3>${news.title}</h3>
+            <p>${news.desc}</p>
+            <span class="views">${news.views} زيارة</span>
+        </div>
+    `;
+    card.classList.remove('hidden'); // إظهار البطاقة
+});
+
