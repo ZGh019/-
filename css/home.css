@@ -211,25 +211,50 @@ button:active {
     }
 }
 
+
 /*=========== الشعار و الوصف ===============*/
-.img-text {
+.img-1 {
     position: absolute;
     top: 70px; /* المسافة أسفل الشريط العلوي */
-    right: 20px; /* الزاوية اليمنى */
-    display: flex;
-    flex-direction: column; /* ترتيب عمودي */
-    align-items: center; /* النص في المنتصف تحت الصورة */
+    left: 55px; /* الزاوية اليمنى */
+}
+
+
+.text-2 h3 {
+    margin: 55px auto; /* المسافة من أعلى وأسفل */
+    width: 300px;      /* عرض العنصر */
     text-align: center;
 }
 
-.img-text img {
-    display: block;
-    margin-bottom: 10px;
+.header-container {
+  position: relative; /* أو .top-bar غالباً position: fixed/relative موجودة */
 }
 
-.img-text h3 {
-    font-size: 14px;
-    color: #fff; /* لون النص */
-    max-width: 180px; /* عرض أقصى للنص */
-    line-height: 1.4;
+/* المجموعة: تُحرك ككتلة واحدة */
+.social-icons {
+  position: absolute;   /* تحريك المجموعة مكانياً */
+  top: 70px;            /* تحكم في الارتفاع (رفع أو تنزيل) */
+  right: 20px;          /* تحكم يمين/يسار */
+  display: flex;        /* يجعل الأيقونات تصفّ صفًا واحدًا */
+  gap: 40px;            /* مسافة بين كل أيقونة */
+  align-items: center;  /* وسطها عمودياً */
+  z-index: 1000;        /* فوق العناصر الأخرى */
+}
+
+/* كل رابط/أيقونة داخل المجموعة */
+.social-icons a {
+  display: inline-flex;       /* تصرف كصندوق سطري قابل للتمركز */
+  align-items: center;
+  justify-content: center;
+  padding: 6px;               /* مساحة داخلية للنقر */
+  width: 36px;
+  height: 36px;
+  text-decoration: none;
+}
+
+/* شكل الصورة داخل الرابط */
+.social-icons img {
+  display: block;
+  width: 24px;
+  height: 24px;
 }
