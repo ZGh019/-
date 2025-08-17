@@ -447,23 +447,25 @@ button:active {
     display: none;
 }
 /*=============================القسم الاربع من الجزء الثاني الخاص بي خريطة الموقع=============================*/
+/* ======= الحاوية الرئيسية ======= */
 .map-section {
   padding: 0 15px;
 }
+/* ======= البطاقة الأساسية ======= */
 .map-card {
-  position: relative; /* مهم لو حنستعمل pseudo-element */
-  background:#111;
+  position: relative;
+  background: rgba(17,17,17,0.30); /* أسود شفاف */
   border-radius: 15px;
   border: 1px solid #D3202A;
-  padding: 20px;
-  box-shadow: 0 4px 20px rgba(0,0,0, 0.20);
-  
-  width: 100%;       /* البطاقة تحاول تاخذ كل العرض المتاح */
-  max-width: 800px;  /* لكن ما تتجاوزش 800px */
-  margin: 0 auto;    /* تخليها في المنتصف */  
-  
+  padding: 10px;
+  box-shadow: 20px 70px 20px rgba(0,0,0, 0.50);
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+  overflow: hidden; /* يمنع العناصر من الخروج خارج البطاقة */
 }
 
+/* الطبقة الأولى: نجوم صغيرة تتحرك */
 .map-card::before {
   content: "";
   position: absolute;
@@ -472,13 +474,52 @@ button:active {
   width: 200%;
   height: 200%;
   background: radial-gradient(circle, rgba(255,255,255,0.2) 1px, transparent 1px);
-  background-size: 50px 50px; /* حجم "النجوم" */
+  background-size: 50px 50px;
   animation: moveStars 20s linear infinite;
-  pointer-events: none; /* لا تمنع التفاعل مع البطاقة */
+  pointer-events: none;
 }
 
+/* الطبقة الثانية: خطوط متقاطعة تتحرك ببطء */
+.map-card::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 200%;
+  height: 200%;
+  background: repeating-linear-gradient(45deg, rgba(255,50,50,0.1) 0, rgba(255,50,50,0.1) 1px, transparent 1px, transparent 20px);
+  animation: moveLines 30s linear infinite;
+  pointer-events: none;
+}
+
+/* الطبقة الثالثة: دوائر متحركة */
+.map-card .circles {
+  position: absolute;
+  top: -25%;
+  left: -25%;
+  width: 150%;
+  height: 150%;
+  background: radial-gradient(circle, rgba(255,255,255,0.05) 2px, transparent 2px);
+  background-size: 100px 100px;
+  animation: moveCircles 40s linear infinite;
+  pointer-events: none;
+}
+/* ======= تحريك النجوم والخطوط ======= */
+/* الحركات */
 @keyframes moveStars {
-  0% { transform: translate(0, 0); }
-  100% { transform: translate(50px, 50px); }
+  0% { transform: translate(0,0); }
+  100% { transform: translate(50px,50px); }
 }
 
+@keyframes moveLines {
+  0% { transform: translate(0,0); }
+  100% { transform: translate(-50px,50px); }
+}
+
+@keyframes moveCircles {
+  0% { transform: translate(0,0); }
+  100% { transform: translate(30px,-30px); }
+}
+.map-card {
+  overflow: hidden; /* يمنع العناصر من الخروج خارج البطاقة */
+}
