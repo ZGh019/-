@@ -446,4 +446,39 @@ button:active {
 .hidden {
     display: none;
 }
+/*=============================القسم الاربع من الجزء الثاني الخاص بي خريطة الموقع=============================*/
+.map-section {
+  padding: 0 15px;
+}
+.map-card {
+  position: relative; /* مهم لو حنستعمل pseudo-element */
+  background:#111;
+  border-radius: 15px;
+  border: 1px solid #D3202A;
+  padding: 20px;
+  box-shadow: 0 4px 20px rgba(0,0,0, 0.20);
+  
+  width: 100%;       /* البطاقة تحاول تاخذ كل العرض المتاح */
+  max-width: 800px;  /* لكن ما تتجاوزش 800px */
+  margin: 0 auto;    /* تخليها في المنتصف */  
+  
+}
+
+.map-card::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(255,255,255,0.2) 1px, transparent 1px);
+  background-size: 50px 50px; /* حجم "النجوم" */
+  animation: moveStars 20s linear infinite;
+  pointer-events: none; /* لا تمنع التفاعل مع البطاقة */
+}
+
+@keyframes moveStars {
+  0% { transform: translate(0, 0); }
+  100% { transform: translate(50px, 50px); }
+}
 
