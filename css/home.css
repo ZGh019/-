@@ -523,3 +523,51 @@ button:active {
 .map-card {
   overflow: hidden; /* يمنع العناصر من الخروج خارج البطاقة */
 }
+
+/*022222222222222222222222222222222222222222222222222000002222222222222222222222222*/
+.sub-node .mini-nodes, .main-node .sub-nodes {
+    display: none;
+}
+
+.sub-node.open .mini-nodes,
+.sub-node.hovered .mini-nodes,
+.main-node.open .sub-nodes,
+.main-node.hovered .sub-nodes {
+    display: block;
+}
+
+
+.map-title {
+  text-align: center;          /* يضع العنوان في وسط البطاقة */
+  color: #D3202A;              /* لون النص أحمر داكن */
+  font-size: 28px;             /* حجم الخط */
+  font-weight: bold;           /* الخط عريض */
+  margin-bottom: 25px;         /* مسافة بين العنوان والمحتوى تحته */
+  text-shadow: 1px 1px 4px rgba(0,0,0,0.5); /* ظل النص لإبراز العنوان */
+}
+
+
+.main-nodes {
+  display: flex;               /* تجعل العناصر في صف أفقي */
+  justify-content: space-between; /* تضع مسافة متساوية بين الأزرار */
+  gap: 10px;                   /* مسافة إضافية بسيطة بين الأزرار */
+  flex-wrap: wrap;             /* إذا صغر العرض، تنتقل الأزرار للسطر التالي */
+  margin-bottom: 20px;         /* مسافة بين الأزرار والمحتوى تحتها */
+}
+
+.main-node {
+  flex: 1;                     /* كل زر يحاول أن يأخذ نفس مساحة العرض */
+  background: #222;            /* خلفية غامقة للزر */
+  color: #fff;                 /* لون النص أبيض */
+  padding: 12px 10px;          /* مسافة داخلية للزر */
+  border-radius: 10px;         /* زوايا دائرية للأزرار */
+  text-align: center;           /* توسيط النص داخل الزر */
+  cursor: pointer;             /* شكل المؤشر عند المرور */
+  transition: all 0.3s ease;  /* تأثير سلس عند hover أو تغيير حالة */
+}
+
+.main-node:hover {
+  background: #D3202A;         /* عند المرور بالماوس يتغير لون الخلفية */
+  color: #fff;                 /* تأكيد بقاء النص أبيض */
+  transform: scale(1.05);      /* تكبير طفيف لإبراز التفاعل */
+}
