@@ -51,52 +51,38 @@ hiddenNewsCards.forEach((card, index) => {
 });
 
 //00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
-document.querySelectorAll('.main-node').forEach(main => {
-    const subNodes = main.querySelectorAll('.sub-nodes > .sub-node');
+document.addEventListener('DOMContentLoaded', () => {
+    document.querySelectorAll('.main-node').forEach(main => {
+        const subNodes = main.querySelectorAll('.sub-nodes > .sub-node');
 
-    // عند الضغط على main-node
-    main.addEventListener('click', () => {
-        subNodes.forEach(sub => sub.classList.toggle('open'));
+        main.addEventListener('click', () => {
+            // فتح main-node
+            main.classList.toggle('open');
 
-        // إخفاء أي أقسام رئيسية أخرى قد تسبب اختلاط
-        document.querySelectorAll('.main-node').forEach(otherMain => {
-            if(otherMain !== main){
-                const otherSubNodes = otherMain.querySelectorAll('.sub-nodes > .sub-node');
-                otherSubNodes.forEach(sub => sub.classList.remove('open'));
-            }
-        });
-    });
-
-    // hover مؤقت
-    main.addEventListener('mouseenter', () => {
-        subNodes.forEach(sub => sub.classList.add('hovered'));
-    });
-    main.addEventListener('mouseleave', () => {
-        subNodes.forEach(sub => sub.classList.remove('hovered'));
-    });
-
-    // نفس الشيء للأقسام الفرعية
-    subNodes.forEach(sub => {
-        const miniNodes = sub.querySelectorAll('.mini-nodes > .mini-node');
-
-        sub.addEventListener('click', () => {
-            miniNodes.forEach(mini => mini.classList.toggle('open'));
-
-            // إخفاء أي mini-nodes أخرى تسبب تضارب
-            subNodes.forEach(otherSub => {
-                if(otherSub !== sub){
-                    const otherMini = otherSub.querySelectorAll('.mini-nodes > .mini-node');
-                    otherMini.forEach(mini => mini.classList.remove('open'));
-                }
+            // إخفاء الأقسام الأخرى التي قد تتداخل
+            document.querySelectorAll('.main-node').forEach(otherMain => {
+                if(otherMain !== main) otherMain.classList.remove('open');
             });
         });
 
-        sub.addEventListener('mouseenter', () => {
-            miniNodes.forEach(mini => mini.classList.add('hovered'));
-        });
-        sub.addEventListener('mouseleave', () => {
-            miniNodes.forEach(mini => mini.classList.remove('hovered'));
+        main.addEventListener('mouseenter', () => main.classList.add('hovered'));
+        main.addEventListener('mouseleave', () => main.classList.remove('hovered'));
+
+        // للأقسام الفرعية
+        subNodes.forEach(sub => {
+            const miniNodes = sub.querySelectorAll('.mini-nodes > .mini-node');
+
+            sub.addEventListener('click', e => {
+                e.stopPropagation(); // منع انتشار الحدث للmain-node
+                sub.classList.toggle('open');
+
+                subNodes.forEach(otherSub => {
+                    if(otherSub !== sub) otherSub.classList.remove('open');
+                });
+            });
+
+            sub.addEventListener('mouseenter', () => sub.classList.add('hovered'));
+            sub.addEventListener('mouseleave', () => sub.classList.remove('hovered'));
         });
     });
 });
-
