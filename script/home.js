@@ -50,4 +50,53 @@ hiddenNewsCards.forEach((card, index) => {
     card.classList.remove('hidden'); // إظهار البطاقة
 });
 
+//00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+document.querySelectorAll('.main-node').forEach(main => {
+    const subNodes = main.querySelectorAll('.sub-nodes > .sub-node');
+
+    // عند الضغط على main-node
+    main.addEventListener('click', () => {
+        subNodes.forEach(sub => sub.classList.toggle('open'));
+
+        // إخفاء أي أقسام رئيسية أخرى قد تسبب اختلاط
+        document.querySelectorAll('.main-node').forEach(otherMain => {
+            if(otherMain !== main){
+                const otherSubNodes = otherMain.querySelectorAll('.sub-nodes > .sub-node');
+                otherSubNodes.forEach(sub => sub.classList.remove('open'));
+            }
+        });
+    });
+
+    // hover مؤقت
+    main.addEventListener('mouseenter', () => {
+        subNodes.forEach(sub => sub.classList.add('hovered'));
+    });
+    main.addEventListener('mouseleave', () => {
+        subNodes.forEach(sub => sub.classList.remove('hovered'));
+    });
+
+    // نفس الشيء للأقسام الفرعية
+    subNodes.forEach(sub => {
+        const miniNodes = sub.querySelectorAll('.mini-nodes > .mini-node');
+
+        sub.addEventListener('click', () => {
+            miniNodes.forEach(mini => mini.classList.toggle('open'));
+
+            // إخفاء أي mini-nodes أخرى تسبب تضارب
+            subNodes.forEach(otherSub => {
+                if(otherSub !== sub){
+                    const otherMini = otherSub.querySelectorAll('.mini-nodes > .mini-node');
+                    otherMini.forEach(mini => mini.classList.remove('open'));
+                }
+            });
+        });
+
+        sub.addEventListener('mouseenter', () => {
+            miniNodes.forEach(mini => mini.classList.add('hovered'));
+        });
+        sub.addEventListener('mouseleave', () => {
+            miniNodes.forEach(mini => mini.classList.remove('hovered'));
+        });
+    });
+});
 
