@@ -53,17 +53,17 @@ hiddenNewsCards.forEach((card, index) => {
 
 //============================= تجربة روابط الاقسام في القسم الرابع الجزء الثاني ===========================
 // عند الضغط على خانة رئيسية يتم فتحها
-document.querySelectorAll(".main-node").forEach(node => {
-  node.addEventListener("click", () => {
+//document.querySelectorAll(".main-node").forEach(node => {
+  //node.addEventListener("click", () => {
     // غلق باقي الخانات
-    document.querySelectorAll(".sub-nodes").forEach(sub => {
-      if (sub !== node.querySelector(".sub-nodes")) {
-        sub.style.display = "none";
-      }
-    });
+    //document.querySelectorAll(".sub-nodes").forEach(sub => {
+      //if (sub !== node.querySelector(".sub-nodes")) {
+        //sub.style.display = "none";
+//      }
+  //  });
     // فتح/غلق الخانة الحالية
-    const subNodes = node.querySelector(".sub-nodes");
-    subNodes.style.display = (subNodes.style.display === "block") ? "none" : "block";
-  });
-});
+    //const subNodes = node.querySelector(".sub-nodes");
+    //subNodes.style.display = (subNodes.style.display === "block") ? "none" : "block";
+  //});
+//});
 
